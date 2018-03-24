@@ -1,7 +1,5 @@
 sudo = required
 
-language: cpp
-
 services:
   - docker
 
@@ -22,6 +20,6 @@ install: true
 
 scripts:
   - docker build ${TRAVIS_BUILD_DIR} \
-      -t attiny85sim:${UBUNTY_RELEASE} -f Dockerfile.${UBUNTU_RELEASE}
+      -t attiny85sim:${UBUNTU_RELEASE} -f Dockerfile.${UBUNTU_RELEASE}
   - scripts/save_docker_cache.sh
 
