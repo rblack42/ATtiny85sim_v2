@@ -1,19 +1,20 @@
 #include "catch.hpp"
 #include "argParse.h"
 
-const char *p1 = "prog";
-
-const char *data1[] = {
-    p1
+char *data1[] = {
+    (char *)"prog",
+    NULL
 };
-const char *data2[] = {
-    p1,
-    "machine.hdl"
+char *data2[] = {
+    (char *) "prog",
+    (char *)"machine.hdl",
+    NULL
 };
-const char *data3[] = {
-    p1,
-    "-d"
-    "machine.hdl"
+char *data3[] = {
+    (char *) "prog",
+    (char *) "-d",
+    (char *) "machine.hdl",
+    NULL,
 };
 
 
