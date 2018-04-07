@@ -1,25 +1,11 @@
-sudo = required
+language: cpp
+sudo: false
 
-services:
-  - docker
+compiler: gcc
 
-cache:
-  directories:
-    - /home/travis/docker
+script:
+  - make clean
+  - make
+  - make test
 
-  env:
-    - UBUNTU_RELEASE=trusty \
-        DOCKER_CACHE_FILE=/home/travis/docker/trusty-cache.tar.gz
-    - UBUNTU_RELEASE=xenial \
-        DOCKER_CACHE_FILE=/home/travis/docker/xenial-cache.tar.gz
-      `
-before_install:
-  - scripts/load_docker_cache.sh
-
-install: true
-
-scripts:
-  - docker build ${TRAVIS_BUILD_DIR} \
-      -t attiny85sim:${UBUNTU_RELEASE} -f Dockerfile.${UBUNTU_RELEASE}
-  - scripts/save_docker_cache.sh
 
