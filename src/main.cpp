@@ -2,6 +2,7 @@
 #include "../.version"
 #include "argParse.h"
 #include "Component.h"
+#include "Wire.h"
 
 int main(int argc, char *argv[]) {
     std::cout
@@ -14,6 +15,7 @@ int main(int argc, char *argv[]) {
         std::cout
             << "\trunning..."
             << std::endl;
+        // test components and wires
         Component pc("PC");
         Component ir("IR");
         std::cout
@@ -25,6 +27,13 @@ int main(int argc, char *argv[]) {
             << ir.get_name()
             << "="
             << ir.tick()
+            << std::endl;
+        Wire w1, w2;
+        std::cout
+            << "tock: "
+            << w1.tock()
+            << ","
+            << w2.tock()
             << std::endl;
     } else {
         std::cout
