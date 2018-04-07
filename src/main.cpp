@@ -3,8 +3,11 @@
 #include "argParse.h"
 #include "Component.h"
 #include "Wire.h"
+#include "Machine.h"
 
 int main(int argc, char *argv[]) {
+    Machine m;
+
     std::cout
         << "ATtiny85sim v("
         << version
@@ -16,24 +19,25 @@ int main(int argc, char *argv[]) {
             << "\trunning..."
             << std::endl;
         // test components and wires
-        Component pc("PC");
-        Component ir("IR");
+        m.add_component("PC");
+        m.add_component("IR");
         std::cout
             << "tick: "
-            << pc.get_name()
+            << "PC"
             << "="
-            << pc.tick()
+            << m.parts["PC"]->tick()
             << ","
-            << ir.get_name()
+            << "IR"
             << "="
-            << ir.tick()
+            << m.parts["IR"]->tick()
             << std::endl;
-        Wire w1, w2;
+        m.add_wire("w1");
+        m.add_wire("w2");
         std::cout
             << "tock: "
-            << w1.tock()
+            << m.wires["w1"]->tock()
             << ","
-            << w2.tock()
+            << m.wires["w2"]->tock()
             << std::endl;
     } else {
         std::cout

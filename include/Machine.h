@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include <map>
 #include "Component.h"
 #include "Wire.h"
 
@@ -10,7 +10,6 @@ class Machine {
         void add_wire(std::string n);
         void tick(void);
         void tock(void);
-    private:
-        std::vector<Component *> parts;
-        std::vector<Wire *> wires;
+        std::map<std::string, Component *> parts;
+        std::map<std::string, Wire *> wires;
 };
