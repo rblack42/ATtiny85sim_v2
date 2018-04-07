@@ -14,7 +14,7 @@ test:	$(TSTTGT)
 
 .PHONY: run
 run:	$(TARGET)
-	./$(TARGET)
+	./$(TARGET) machine.hdl
 
 # program build rules
 $(TARGET):	$(OBJS)
