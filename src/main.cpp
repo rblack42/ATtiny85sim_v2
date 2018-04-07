@@ -14,12 +14,17 @@ int main(int argc, char *argv[]) {
         std::cout
             << "\trunning..."
             << std::endl;
-        Component c("PC");
+        Component pc("PC");
+        Component ir("IR");
         std::cout
             << "tick: "
-            << c.get_name()
+            << pc.get_name()
             << "="
-            << c.tick()
+            << pc.tick()
+            << ","
+            << ir.get_name()
+            << "="
+            << ir.tick()
             << std::endl;
     } else {
         std::cout

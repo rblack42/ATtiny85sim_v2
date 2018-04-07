@@ -7,6 +7,7 @@ class Component {
         int tick(void);
         std::string get_name(void);
     private:
+        static int serialno;
         int id;
         std::string name;
 };

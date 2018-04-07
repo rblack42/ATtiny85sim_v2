@@ -1,7 +1,9 @@
 #include "Component.h"
 
+int Component::serialno = 0;
+
 Component::Component(std::string n) {
-    id = 42;
+    id = ++serialno;
     name = n;
 }
 
