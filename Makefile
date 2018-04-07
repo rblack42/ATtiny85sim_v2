@@ -1,20 +1,28 @@
-PROJNAME := attiny85sim
-UID		 := $(shell id -u)
-GID		 := $(shell id -g)
+include mk/util.mak
+.DEFAULT_GOAL	:= all
 
-.phony: build
-build:
-	docker build -t $(PROJNAME) .
+TARGET	:= attiny85sim
+TSTTGT	:= testapp
 
-.PHONY: shell
-shell:
-	docker run --rm -it \
-		--user="$(UID):$(GID)" \
-		-v "$(PWD)/code":/workdir \
-		$(PROJNAME) bash
+.PHONY: all
+all:	version $(TARGET) ## build simulator app
 
-.PHONY: clean
-clean:
-	docker rmi $(PROJNAME)
-	docker ps -aq | xargs docker rm
+
+.PHONY: test
+test:	$(TSTTGT)
+	./$(TSTTGT)
+
+.PHONY: run
+run:	$(TARGET)
+	./$(TARGET)
+
+# program build rules
+$(TARGET):	$(OBJS)
+	$(CXX) -o $@ $^
+	$(shell ./scripts/inc_version.sh build)
+
+
+$(TSTTGT):	$(TOBJS) $(LOBJS)
+	$(CXX) -o $@ $^
+
 

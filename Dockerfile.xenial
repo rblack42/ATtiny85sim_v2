@@ -1,3 +1,0 @@
-FROM ubuntu:xenial
-RUN apt-get update && apt-get -y install \
-    make g++ git python-sphinx
