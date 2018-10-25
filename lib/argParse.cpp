@@ -1,7 +1,9 @@
-#include <iostream>
-#include <cstdlib>
+// Copyright 2018 Roie R. Black
 
 #include "argParse.h"
+
+#include <iostream>
+#include <cstdlib>
 
 void usage(void) {
     std::cout
@@ -20,12 +22,12 @@ void usage(void) {
 
 int argParse(int argc, char *argv[]) {
     std::string fname = "";
-    if( argc < 2) {
+    if (argc < 2) {
         return NO_FILE;
     }
-    for(int i = 1; i < argc; i++) {
-        if( argv[i][0] == '-' ) {
-            switch ( argv[i][1] ) {
+    for (int i = 1; i < argc; i++) {
+        if (argv[i][0] == '-') {
+            switch (argv[i][1]) {
                 case 'd':
                     break;
                 case 's':
@@ -38,11 +40,11 @@ int argParse(int argc, char *argv[]) {
             fname = argv[i];
         }
     }
-    if( fname.length() == 0) {
+    if (fname.length() == 0) {
         return NO_FILE;
-    } else
-        ;
-    return OK;
+    } else {
+        return OK;
+    }
 }
 
 void argError(int code) {

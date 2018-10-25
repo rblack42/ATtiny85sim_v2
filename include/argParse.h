@@ -1,4 +1,5 @@
 #pragma once
+// Copyright 2018 Roie R. Black
 
 enum argErrors {
     OK,

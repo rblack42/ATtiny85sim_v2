@@ -1,3 +1,5 @@
+// Copyright 2018 ROie R. Black
+
 #include <iostream>
 #include "../.version"
 #include "argParse.h"
@@ -14,7 +16,7 @@ int main(int argc, char *argv[]) {
         << ")"
         << std::endl;
     int argcode = argParse(argc, argv);
-    if(argcode == OK) {
+    if (argcode == OK) {
         std::cout
             << "\trunning..."
             << std::endl;
@@ -49,5 +51,4 @@ int main(int argc, char *argv[]) {
     std::cout
         << "simulation halted"
         << std::endl;
-
 }

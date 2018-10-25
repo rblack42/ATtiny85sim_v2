@@ -8,6 +8,11 @@
 # C/C++
 *.o
 
-attiny85sim
+# Python
+_venv/
+__pycache__
+rst/_build
+
+ATtiny85sim_v2
 testapp
 

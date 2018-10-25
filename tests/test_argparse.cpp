@@ -1,3 +1,5 @@
+// Copyright 2018 Roie R. Black
+
 #include "catch.hpp"
 #include "argParse.h"
 
@@ -18,7 +20,7 @@ char *data3[] = {
 };
 
 
-TEST_CASE( "argParse test", "argparse" ){
+TEST_CASE("argParse test", "argparse") {
     int code = argParse(1,(char **) data1);
     REQUIRE(code == NO_FILE);
     code = argParse(2,(char **) data2);

@@ -1,28 +1,11 @@
-include mk/util.mak
-.DEFAULT_GOAL	:= all
+# Modular Makefile
 
-TARGET	:= attiny85sim
-TSTTGT	:= testapp
+PROJPATH = $(PWD)
+PROJNAME = $(shell basename $(PWD))
+TSTAPP	 = testapp
+
+-include $(wildcard mk/*.mk)
 
 .PHONY: all
-all:	version $(TARGET) ## build simulator app
-
-
-.PHONY: test
-test:	$(TSTTGT)
-	./$(TSTTGT)
-
-.PHONY: run
-run:	$(TARGET)
-	./$(TARGET) machine.hdl
-
-# program build rules
-$(TARGET):	$(OBJS)
-	$(CXX) -o $@ $^
-	$(shell ./scripts/inc_version.sh build)
-
-
-$(TSTTGT):	$(TOBJS) $(LOBJS)
-	$(CXX) -o $@ $^
-
+all:	$(PROJNAME) ## Built primary application
 
