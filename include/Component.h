@@ -10,7 +10,7 @@ class Component {
  public:
     // constructor
     Component();
-    Component(std::string n);
+    explicit Component(std::string n);
 
     // destructor
     ~Component();

@@ -15,10 +15,10 @@ Component::Component(std::string n) {
 }
 
 Component::~Component() {
-    for(int i=0; i < in_pins.size(); i++) {
+    for (int i=0; i < in_pins.size(); i++) {
         delete in_pins[i];
     }
-    for(int i=0; i < out_pins.size(); i++) {
+    for (int i=0; i < out_pins.size(); i++) {
         delete out_pins[i];
     }
 }

@@ -7,7 +7,7 @@
 
 class Pin {
  public:
-    Pin(std::string n);
+    explicit Pin(std::string n);
     void set_val(uint16_t v);
     uint16_t get_val(void);
     std::string get_name(void);

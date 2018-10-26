@@ -2,3 +2,4 @@ sphinx
 cloud_sptheme
 sphinxcontrib-spelling
 sphinx-autorun
+cpplint
