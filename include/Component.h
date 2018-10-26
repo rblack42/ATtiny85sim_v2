@@ -2,13 +2,14 @@
 // Copyright 2018 Roie R. Black
 
 #include <string>
-#Include <vector>
+#include <vector>
 
 #include "Pin.h"
 
 class Component {
  public:
     // constructor
+    Component();
     Component(std::string n);
 
     // destructor
@@ -16,7 +17,6 @@ class Component {
 
     // input pins
     std::vector<Pin *> in_pins;
-    int tick(void);
 
     // output pins
     std::vector<Pin *> out_pins;
@@ -24,7 +24,6 @@ class Component {
     // mutators
     void add_in_pin(std::string name);
     void add_out_pin(std::string name);
-
     int tick(void);
 
     // accessors

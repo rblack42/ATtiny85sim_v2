@@ -1,7 +1,7 @@
 language: cpp
 sudo: false
 
-compiler: gcc
+compiler: g++
 
 script:
   - make clean
