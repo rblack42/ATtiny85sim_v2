@@ -1,4 +1,4 @@
-GPP	    := $(shell which g++)
+CXX	    := $(shell which g++)
 MAKE	:= $(shell which make)
 GIT	    := $(shell which git)
 DEL     := rm -f
@@ -15,24 +15,24 @@ OBJS    := $(UOBJS) $(LOBJS) $(TOBJS)
 
 CXXFLAGS  := -std=c++11 -Iinclude
 
-$(PROJNAME):    $(UOBJS) $(LOBJS)
-	$(GPP) -o $@ $^ $(LFLAGS)
+$(PROJNAME)$(EXT):    $(UOBJS) $(LOBJS)
+	$(CXX) -o $@ $^ $(LFLAGS)
 
 %.o:    %.cpp
-	$(GPP) -c -o $@ $< $(CXXFLAGS)
+	$(CXX) -c -o $@ $< $(CXXFLAGS)
 
-$(TSTAPP):  $(TOBJS) $(LOBJS)
-	$(GPP) -o $@ $^ $(LFLAGS)
+$(TSTAPP)$(EXT):  $(TOBJS) $(LOBJS)
+	$(CXX) -o $@ $^ $(LFLAGS)
 
 .PHONY: run
-run: $(PROJNAME) ## run default application
+run: $(PROJNAME)$(EXT) ## run default application
 	./$(PROJNAME)
 
 .PHONY: test
-test:   $(TSTAPP) ## Run unit tests on application library code
-	./$(TSTAPP)
+test:   $(TSTAPP)$(EXT) ## Run unit tests on application library code
+	$(PREFIX)$(TSTAPP)
 
 .PHONY: clean
 clean:  ## Remove all build artifacts
-	$(DEL) $(OBJS) $(PROJNAME) $(TSTAPP)
+	$(DEL) $(OBJS) $(PROJNAME)$(EXT) $(TSTAPP)$(EXT)
 
