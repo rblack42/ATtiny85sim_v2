@@ -4,7 +4,7 @@ GIT	    := $(shell which git)
 DEL     := rm -f
 
 USRCS	:= $(wildcard src/*.cpp)
-LSRCS	:= $(wildcard lib/*.cpp)
+LSRCS	:= $(shell python mk/pyfind.py lib .cpp)
 TSRCS	:= $(wildcard tests/*.cpp)
 SRCS    := $(USRCS) $(LSRCS) $(TSRCS)
 
@@ -23,6 +23,10 @@ $(PROJNAME):    $(UOBJS) $(LOBJS)
 
 $(TSTAPP):  $(TOBJS) $(LOBJS)
 	$(GPP) -o $@ $^ $(LFLAGS)
+
+.PHONY: run
+run: $(PROJNAME) ## run default application
+	./$(PROJNAME)
 
 .PHONY: test
 test:   $(TSTAPP) ## Run unit tests on application library code

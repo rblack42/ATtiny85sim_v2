@@ -18,6 +18,7 @@ ATtiny85 Simulator
 This course has been taught at Austin Community College in Austin, Texas from
 2014-2018.
 
-This project constructed using Gnu ``g++`` and ``make``.  Type ``make
-help`` at either level to see what build commands are available.
+This project constructed using Gnu ``g++`` and ``make``.  Documentation is available at http://rblack42.github.io/ATtiny85sim_v2. The docs are produced using Python Sphins.
+
+Type ``make help`` to see what build commands are available.
 

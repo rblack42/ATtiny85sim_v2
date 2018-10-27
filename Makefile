@@ -8,4 +8,3 @@ TSTAPP	 = testapp
 
 .PHONY: all
 all:	$(PROJNAME) ## Built primary application
-

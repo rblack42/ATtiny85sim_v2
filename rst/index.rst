@@ -9,6 +9,25 @@ ATtiny85sim - Beginner's Simulator Project
 Introduction
 ************
 
+HDL Compiler
+************
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   hdl-compiler/*
+
+Testing
+*******
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   testing/*
+
+
 Indices and tables
 ==================
 

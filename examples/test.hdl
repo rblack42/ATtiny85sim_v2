@@ -1,0 +1,5 @@
+machine simtest {
+    shape MUX;
+    wire w1: pin1 > 50 J1 V 50 j2 > 50 pin2;
+    wire w2: pin3 > 50 - j3 - pin4;
+}

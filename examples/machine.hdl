@@ -1,0 +1,5 @@
+machine ATtiny85 {
+    shape mux`: (0,0) - (1,1) -
+    wire w1: pin1 > 50 j1 > 50 j2 > pin2;
+    wire w2: j1 v 50 > pin3;
+} 

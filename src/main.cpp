@@ -1,54 +1,34 @@
-// Copyright 2018 ROie R. Black
+// Copyright 2018 Roie R. Black
 
+#include "ArgParser.h"
+#include "Compiler.h"
 #include <iostream>
-#include "../.version"
-#include "argParse.h"
-#include "Component.h"
-#include "Wire.h"
-#include "Machine.h"
 
 int main(int argc, char *argv[]) {
-    Machine m;
-
-    std::cout
-        << "ATtiny85sim v("
-        << version
-        << ")"
-        << std::endl;
-    int argcode = argParse(argc, argv);
-    if (argcode == OK) {
+    ArgParser ap;
+    ARGS result = ap.parse(argc, argv);
+    if (result.error_code == OK) {
         std::cout
-            << "\trunning..."
-            << std::endl;
-        // test components and wires
-        m.add_component("PC");
-        m.add_component("IR");
+            << "CPUkit running("
+            << "debug="
+            << result.debug
+            << ")\n";
         std::cout
-            << "tick: "
-            << "PC"
-            << "="
-            << m.parts["PC"]->tick()
-            << ","
-            << "IR"
-            << "="
-            << m.parts["IR"]->tick()
-            << std::endl;
-        m.add_wire("w1");
-        m.add_wire("w2");
+            << "Processing "
+            << result.source
+            << "\n";
         std::cout
-            << "tock: "
-            << m.wires["w1"]->tock()
-            << ","
-            << m.wires["w2"]->tock()
-            << std::endl;
+            << "\tmax cycles = "
+            << result.max_cycles
+            << "\n";
     } else {
         std::cout
-            << "Error parsing command line"
-            << std::endl;
-        usage();
-        exit(1);
+            << "CPUkit Error: "
+            << ap.getErrorMsg()
+            << "\n";
     }
-    std::cout
-        << "simulation halted"
-        << std::endl;
+    Compiler c(true);
+    std::string fname = result.source;
+    c.parse_file(fname);
 }
+
